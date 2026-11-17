@@ -26,7 +26,7 @@ as áreas mais afetadas são periferias) e 9 (infraestrutura).
 |---|---|---|
 | **1. IA e automação** | Triagem da foto com Gemini, modo reserva por regras, score de prioridade, agente que escreve alertas, alerta automático | `lib/ia/`, `ia/prompts.md`, `ia/avaliacao/` |
 | **2. Big data e visualização** | Camadas bronze → silver → gold, ingestão com validação, visões analíticas (média móvel, LAG, ranking, índice de risco), dashboard com filtros | `supabase/migrations/`, `supabase/seed.sql`, `app/dashboard/` |
-| **3. MVP, IoT e experiência digital** | 9 telas, fluxo cidadão → IA → gestor → alerta, sensores de nível e chuva (simulador + rota de ingestão) | `app/`, `iot/`, `app/api/sensores/` |
+| **3. MVP, IoT e experiência digital** | 9 telas, fluxo cidadão → IA → gestor → alerta, sensores de nível e chuva (circuito Wokwi, simulador e rota de ingestão) | `app/`, `iot/`, `app/api/sensores/` |
 | **4. DevOps, segurança e qualidade** | Docker multi-stage, healthcheck, CI, autenticação, RLS, validação de entrada, testes | `Dockerfile`, `docker-compose.yml`, `.github/workflows/`, `app/api/saude/`, `*.test.ts` |
 
 **Integração entre as áreas:** os sensores alimentam a camada gold, que alimenta o dashboard **e** a IA (o índice de
@@ -98,6 +98,16 @@ bun run simular
 Simula uma tempestade nos 6 bairros: a cada 2 s envia 12 leituras (nível + chuva) para `POST /api/sensores`.
 O córrego do Jardim Pantanal passa do limite crítico (220 cm) e um alerta é publicado automaticamente.
 Opções: `--passos 30 --intervalo 2 --pico 40 --url http://localhost:3000`.
+
+**Circuito no Wokwi** (`iot/wokwi/`): ESP32 com sensor ultrassônico HC-SR04 (nível do córrego), potenciômetro
+(pluviômetro) e LEDs de atenção/crítico com os mesmos limites do banco. Projeto público: _[cole aqui o link do Wokwi]_
+
+1. Em [wokwi.com](https://wokwi.com), crie um projeto **ESP32** e cole `sketch.ino` e `diagram.json` nas abas de mesmo nome.
+2. Clique em ▶. A cada 5 s o monitor serial mostra o nível, a chuva e o JSON no formato de `POST /api/sensores`.
+3. Clique no HC-SR04 para mudar a distância (nível = 400 cm − distância) e gire o potenciômetro para mudar a chuva.
+
+O Wokwi online não alcança o `localhost`; para enviar de verdade, preencha `ARCA_URL` e `CHAVE` no sketch com um
+endereço público do app.
 
 ### 5. Testes e avaliação da IA
 
@@ -187,7 +197,7 @@ app/                 telas (Next.js App Router) e rotas de API
   chamados/ gestor/ alertas/ dashboard/ perfil/ login/
 lib/ia/              triagem, regras, prioridade, Gemini (+ testes)
 ia/                  prompts.md e avaliacao/ (casos rotulados + script)
-iot/                 simulador de sensores (+ testes)
+iot/                 simulador de sensores (+ testes) e wokwi/ (circuito ESP32)
 supabase/            migrações (bronze/silver/gold, RLS) e seed
 utils/supabase/      clientes do Supabase (navegador, servidor, admin)
 ```
