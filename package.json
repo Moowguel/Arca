@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "bun test",
-    "simular": "bun iot/simulador.ts"
+    "simular": "bun iot/simulador.ts",
+    "avaliar-ia": "bun --conditions=react-server ia/avaliacao/avaliar.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
