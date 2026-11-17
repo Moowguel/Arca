@@ -220,4 +220,8 @@ _Nome do grupo:_ ...
 
 | Nome | RM |
 |---|---|
-| | |
+| André Vigarani de Camargo | RM97630 |
+| Anna Yagyu | RM550360 |
+| Jean Luiz Bonilha | RM551865 |
+| Miguel Lima | RM552003 |
+| Murilo Favoretto Finardi | RM99950 |
