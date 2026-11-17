@@ -100,7 +100,7 @@ O córrego do Jardim Pantanal passa do limite crítico (220 cm) e um alerta é p
 Opções: `--passos 30 --intervalo 2 --pico 40 --url http://localhost:3000`.
 
 **Circuito no Wokwi** (`iot/wokwi/`): ESP32 com sensor ultrassônico HC-SR04 (nível do córrego), potenciômetro
-(pluviômetro) e LEDs de atenção/crítico com os mesmos limites do banco. Projeto público: _[cole aqui o link do Wokwi]_
+(pluviômetro) e LEDs de atenção/crítico com os mesmos limites do banco. Projeto público: https://wokwi.com/projects/480982629954690049
 
 1. Em [wokwi.com](https://wokwi.com), crie um projeto **ESP32** e cole `sketch.ino` e `diagram.json` nas abas de mesmo nome.
 2. Clique em ▶. A cada 5 s o monitor serial mostra o nível, a chuva e o JSON no formato de `POST /api/sensores`.
