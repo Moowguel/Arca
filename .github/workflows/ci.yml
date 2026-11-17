@@ -1,0 +1,48 @@
+# ARCA — integração contínua: a cada push/PR roda lint, testes, avaliação da IA, build e a imagem Docker.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
+
+      - name: Instalar dependências
+        run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Testes
+        run: bun test
+
+      - name: Avaliação da IA (modo regras)
+        run: bun run avaliar-ia
+
+      - name: Build do Next
+        run: bun run build
+        env:
+          # valores fictícios: o build só precisa que existam
+          NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ci-placeholder
+
+  docker:
+    needs: qualidade
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build da imagem
+        run: |
+          docker build \
+            --build-arg NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321 \
+            --build-arg NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=ci-placeholder \
+            -t arca-web:ci .
