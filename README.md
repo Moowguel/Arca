@@ -170,7 +170,7 @@ A função `ingerir_leitura` faz bronze → silver numa chamada: valida sensor, 
 
 ## Testes
 
-`bun test` — 14 casos:
+`bun test` — 15 casos:
 
 | Caso | O que verifica |
 |---|---|
@@ -188,6 +188,7 @@ A função `ingerir_leitura` faz bronze → silver numa chamada: valida sensor, 
 | CT12 | O score é a soma dos componentes mostrados ao gestor |
 | CT13 | A tempestade simulada passa do limite crítico e o córrego volta a baixar |
 | CT14 | O nível simulado nunca sai da faixa aceita pelo banco |
+| CT15 | Palavra-chave dentro de outra palavra não conta ("rio" em "horário") |
 
 ## Estrutura
 

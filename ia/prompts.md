@@ -85,7 +85,7 @@ O banco garante no máximo um alerta ativo por bairro e nível, o que evita spam
 ## Modo reserva — regras sobre o texto
 
 `lib/ia/regras.ts`. O texto é normalizado (minúsculas, sem acentos) e cada categoria soma 1 ponto por palavra-chave
-encontrada, por exemplo `bueiro`, `boca de lobo`, `entupid` → bueiro; `alagad`, `enchente`, `inunda` → alagamento.
+encontrada no início de uma palavra, por exemplo `bueiro`, `boca de lobo`, `entupid` → bueiro; `alagad`, `enchente`, `inunda` → alagamento.
 
 - O tipo marcado pelo cidadão soma +1,5 na categoria dele.
 - Vence a categoria com mais pontos. Sem nenhum indício, o resultado é `sem_risco` com confiança 0,4.
@@ -118,7 +118,11 @@ Faixas: **crítica** ≥ 75 · **alta** ≥ 55 · **média** ≥ 30 · **baixa**
 | | Acerto da categoria |
 |---|---|
 | Antes: tipo marcado pelo próprio cidadão | 16/30 = **53,3%** |
-| Depois: IA no modo regras | 26/30 = **86,7%** |
+| Depois: IA no modo regras | 27/30 = **90,0%** |
+
+A medição achou um erro: a palavra-chave `rio` casava dentro de "horá**rio**" e classificava "horário da coleta"
+como córrego. As palavras-chave passaram a valer só no início de uma palavra (teste CT15) e o acerto subiu de
+86,7% para 90,0%.
 
 O tempo médio da IA por chamado no modo regras é menor que 1 ms. Com `--gemini`, o script também classifica as
 13 fotos rotuladas de demonstração e mede o acerto e o tempo do Gemini.

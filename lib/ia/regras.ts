@@ -17,12 +17,17 @@ function normalizar(t: string) {
   return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
+// o termo precisa começar uma palavra: "rio" casa com "rio" e "rios", mas não com "horário"
+function contem(texto: string, termo: string) {
+  return new RegExp(`\\b${normalizar(termo).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`).test(texto);
+}
+
 export function classificarPorRegras(descricao: string, tipoInformado: TipoInformado): Classificacao {
   const texto = normalizar(descricao);
   const pontos = Object.fromEntries(
     Object.entries(PALAVRAS).map(([cat, termos]) => [
       cat,
-      termos.reduce((n, termo) => n + (texto.includes(normalizar(termo)) ? 1 : 0), 0),
+      termos.reduce((n, termo) => n + (contem(texto, termo) ? 1 : 0), 0),
     ]),
   ) as Record<Exclude<CategoriaIA, "sem_risco">, number>;
 
@@ -31,7 +36,7 @@ export function classificarPorRegras(descricao: string, tipoInformado: TipoInfor
 
   const [melhor, valor] = Object.entries(pontos).sort((a, b) => b[1] - a[1])[0] as [CategoriaIA, number];
   const total = Object.values(pontos).reduce((a, b) => a + b, 0);
-  const urgencia = URGENCIA.filter((p) => texto.includes(normalizar(p))).length;
+  const urgencia = URGENCIA.filter((p) => contem(texto, p)).length;
 
   if (valor === 0) {
     return {

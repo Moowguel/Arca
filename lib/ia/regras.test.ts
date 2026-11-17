@@ -31,6 +31,11 @@ describe("classificarPorRegras (modo reserva da IA)", () => {
     expect(r.categoria).toBe("corrego_assoreado");
   });
 
+  test("CT15 — palavra-chave dentro de outra palavra não conta (\"rio\" em \"horário\")", () => {
+    const r = classificarPorRegras("Gostaria de saber o horário da coleta seletiva", "outro");
+    expect(r.categoria).toBe("sem_risco");
+  });
+
   test("CT06 — confiança e gravidade ficam sempre dentro dos limites", () => {
     const r = classificarPorRegras(
       "urgente agora risco alagado alagando inundação enchente submerso transbordou casa carro criança idoso",
