@@ -35,6 +35,12 @@ risco do bairro entra no score de prioridade); leituras críticas disparam o age
 **Tecnologias:** Next.js 16 (React 19, TypeScript), Supabase (PostgreSQL, Auth, Storage), Google Gemini, Bun, Docker,
 GitHub Actions.
 
+### Arquitetura
+
+![Arquitetura geral do ARCA](docs/arquitetura.png)
+
+Fonte editável: `docs/arquitetura.svg`.
+
 ---
 
 ## Como rodar
