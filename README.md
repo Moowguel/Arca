@@ -2,7 +2,7 @@
 
 > Global Solution 2026/2 · CitizenTech · FIAP Engenharia de Software (4ESOA)
 
-**Vídeo pitch:** _[cole aqui o link público]_
+**Vídeo pitch:** https://youtu.be/J7vymQjogys
 
 ## O problema e o cidadão
 
