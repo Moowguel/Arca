@@ -3,11 +3,11 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { createClient } from "@/utils/supabase/server";
 import { Selo } from "@/app/components/Selo";
-import { CATEGORIAS, PRIORIDADES, STATUS, formatarDataHora, horasAtras } from "@/lib/rotulos";
+import { CATEGORIAS, PASSOS, PRIORIDADES, STATUS, formatarDataHora, horasAtras } from "@/lib/rotulos";
 import type { Chamado } from "@/lib/tipos-chamado";
 import { obterSessao } from "@/lib/sessao";
 import { atualizarStatus, reabrirChamado } from "@/app/gestor/actions";
-import { PainelAtendimento, PASSOS } from "./PainelAtendimento";
+import { PainelAtendimento } from "./PainelAtendimento";
 
 type Props = { params: Promise<{ id: string }>; searchParams: Promise<{ novo?: string }> };
 

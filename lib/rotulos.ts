@@ -69,3 +69,13 @@ export function formatarDataHora(iso: string) {
 export function horasAtras(horas: number) {
   return new Date(Date.now() - horas * 36e5);
 }
+
+// Passos do diário de atendimento (usado no servidor e no cliente)
+export const PASSOS = [
+  { tipo: "a_caminho", rotulo: "Equipe a caminho", icone: "🚚" },
+  { tipo: "chegada", rotulo: "Chegamos ao local", icone: "📍" },
+  { tipo: "execucao", rotulo: "Serviço em execução", icone: "🔧" },
+  { tipo: "concluido", rotulo: "Serviço concluído", icone: "✅" },
+  { tipo: "saida", rotulo: "Saímos do local", icone: "🚪" },
+  { tipo: "nota", rotulo: "Anotação", icone: "📝" },
+] as const;

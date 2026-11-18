@@ -2,15 +2,7 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { registrarAndamento, type EstadoAndamento } from "@/app/gestor/actions";
-
-export const PASSOS = [
-  { tipo: "a_caminho", rotulo: "Equipe a caminho", icone: "🚚" },
-  { tipo: "chegada", rotulo: "Chegamos ao local", icone: "📍" },
-  { tipo: "execucao", rotulo: "Serviço em execução", icone: "🔧" },
-  { tipo: "concluido", rotulo: "Serviço concluído", icone: "✅" },
-  { tipo: "saida", rotulo: "Saímos do local", icone: "🚪" },
-  { tipo: "nota", rotulo: "Anotação", icone: "📝" },
-] as const;
+import { PASSOS } from "@/lib/rotulos";
 
 const DICAS: Record<string, string> = {
   a_caminho: "Ex.: viatura 12 saindo da base, previsão de 20 min.",
