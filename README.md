@@ -222,7 +222,7 @@ Créditos das fotos de demonstração: `docs/creditos-imagens.md`.
 
 ## Integrantes
 
-_Nome do grupo:_ ...
+**Grupo:** Code Crafters
 
 | Nome | RM |
 |---|---|
