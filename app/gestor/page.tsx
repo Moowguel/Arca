@@ -128,7 +128,7 @@ async function Conteudo({ searchParams }: { searchParams: Busca }) {
   const urlFoto = new Map((assinadas ?? []).map((a) => [a.path, a.signedUrl]));
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[1fr_22rem]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <section className="space-y-3">
         <div className="grid grid-cols-2 rounded-xl bg-slate-200/70 p-1 text-sm font-medium sm:w-72">
           <Link href={linkCom({ ver: "fila", status: "" })} className={`rounded-lg px-3 py-1.5 text-center ${ver === "fila" ? "bg-white shadow-sm" : "text-slate-600"}`}>
