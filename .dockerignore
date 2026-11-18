@@ -1,0 +1,13 @@
+# nada de dependências/builds do Windows nem segredos dentro da imagem
+node_modules
+.next
+.git
+.env*
+!.env.example
+*.tsbuildinfo
+docs
+supabase/.temp
+supabase/.branches
+Dockerfile
+docker-compose.yml
+README.md

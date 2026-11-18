@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <style>
+      .t { font-size: 15px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .s { font-size: 12.5px; fill: #334155; text-anchor: middle; }
+      .g { font-size: 14px; font-weight: 700; text-anchor: middle; }
+      .l { font-size: 11.5px; font-style: italic; fill: #475569; }
+      .seta { fill: none; stroke: #475569; stroke-width: 1.8; marker-end: url(#seta); }
+      .api { fill: none; stroke: #7c3aed; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <!-- cabeçalho -->
+  <text x="40" y="50" font-size="26" font-weight="700" fill="#0f172a">ARCA — arquitetura geral</text>
+  <text x="40" y="80" font-size="13.5" fill="#475569">Sensores e cidadãos alimentam os dados; os dados alimentam a IA e o dashboard; a IA prioriza chamados e dispara alertas.</text>
+  <rect x="1000" y="34" width="16" height="16" rx="3" fill="#f3e8ff" stroke="#7c3aed"/><text x="1024" y="47" font-size="13" fill="#0f172a">Área 1 · IA e automação</text>
+  <rect x="1250" y="34" width="16" height="16" rx="3" fill="#dbeafe" stroke="#2563eb"/><text x="1274" y="47" font-size="13" fill="#0f172a">Área 2 · Big data e visualização</text>
+  <rect x="1000" y="62" width="16" height="16" rx="3" fill="#dcfce7" stroke="#16a34a"/><text x="1024" y="75" font-size="13" fill="#0f172a">Área 3 · MVP, IoT e experiência</text>
+  <rect x="1250" y="62" width="16" height="16" rx="3" fill="#ffedd5" stroke="#ea580c"/><text x="1274" y="75" font-size="13" fill="#0f172a">Área 4 · DevOps e segurança</text>
+
+  <!-- ===== coluna 1: pessoas e sensores ===== -->
+  <text x="40" y="130" font-size="12" font-weight="700" fill="#64748b" letter-spacing="1">QUEM USA E O QUE MEDE</text>
+  <rect x="40" y="140" width="240" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="160" y="172" class="t">Cidadão</text>
+  <text x="160" y="192" class="s">abre chamado com foto,</text>
+  <text x="160" y="208" class="s">recebe alertas do bairro</text>
+
+  <rect x="40" y="250" width="240" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="160" y="284" class="t">Gestor (Defesa Civil)</text>
+  <text x="160" y="304" class="s">atende a fila, publica alertas</text>
+
+  <rect x="40" y="370" width="240" height="210" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="160" y="393" class="g" fill="#15803d">Sensores IoT</text>
+  <rect x="55" y="405" width="210" height="75" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="160" y="432" class="t">ESP32 no Wokwi</text>
+  <text x="160" y="451" class="s">HC-SR04 (nível do córrego)</text>
+  <text x="160" y="467" class="s">potenciômetro (chuva)</text>
+  <rect x="55" y="495" width="210" height="70" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="160" y="524" class="t">Simulador</text>
+  <text x="160" y="544" class="s">bun run simular · 6 bairros</text>
+
+  <!-- ===== coluna 2: app Next.js ===== -->
+  <rect x="340" y="120" width="320" height="520" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="500" y="145" class="g" fill="#15803d">App Next.js 16 · container Docker</text>
+  <rect x="360" y="160" width="280" height="70" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="500" y="189" class="t">Telas (9) · PWA</text>
+  <text x="500" y="209" class="s">chamados, gestor, alertas, dashboard</text>
+  <rect x="360" y="255" width="280" height="70" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="500" y="284" class="t">Server Actions</text>
+  <text x="500" y="304" class="s">sessão + validação de entrada</text>
+  <rect x="360" y="430" width="280" height="70" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="500" y="459" class="t">POST /api/sensores</text>
+  <text x="500" y="479" class="s">chave do dispositivo · até 50 leituras</text>
+  <rect x="360" y="540" width="280" height="60" rx="9" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="500" y="565" class="t">GET /api/saude</text>
+  <text x="500" y="584" class="s">monitoramento: banco, IA, latência</text>
+
+  <!-- ===== coluna 3: IA ===== -->
+  <rect x="720" y="120" width="330" height="520" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="885" y="145" class="g" fill="#6d28d9">Área 1 · IA e automação</text>
+  <rect x="740" y="160" width="290" height="80" rx="9" fill="#f3e8ff" stroke="#7c3aed"/>
+  <text x="885" y="189" class="t">Triagem do chamado</text>
+  <text x="885" y="208" class="s">Gemini classifica a foto</text>
+  <text x="885" y="225" class="s">reserva: regras sobre o texto</text>
+  <rect x="740" y="265" width="220" height="80" rx="9" fill="#f3e8ff" stroke="#7c3aed"/>
+  <text x="850" y="293" class="t">Score de prioridade</text>
+  <text x="850" y="312" class="s">0–100, explicado ao gestor</text>
+  <text x="850" y="328" class="s">foto + risco do bairro</text>
+  <rect x="740" y="400" width="220" height="80" rx="9" fill="#f3e8ff" stroke="#7c3aed"/>
+  <text x="850" y="429" class="t">Agente de alerta</text>
+  <text x="850" y="448" class="s">escreve o aviso em</text>
+  <text x="850" y="464" class="s">linguagem simples</text>
+  <rect x="740" y="545" width="140" height="60" rx="9" fill="#ffffff" stroke="#7c3aed" stroke-dasharray="5 4"/>
+  <text x="810" y="570" class="t">Google Gemini</text>
+  <text x="810" y="589" class="s">API externa</text>
+  <!-- uso da API do Gemini -->
+  <path class="api" d="M740,575 H730 V225 H740"/>
+  <path class="api" d="M730,420 H740"/>
+
+  <!-- ===== coluna 4: dados ===== -->
+  <rect x="1100" y="120" width="460" height="520" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1330" y="145" class="g" fill="#1d4ed8">Área 2 · Dados no Supabase (PostgreSQL)</text>
+  <rect x="1120" y="160" width="205" height="55" rx="9" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="1222" y="183" class="t">Auth + RLS</text>
+  <text x="1222" y="202" class="s">papéis cidadão / gestor</text>
+  <rect x="1340" y="160" width="200" height="55" rx="9" fill="#ffffff" stroke="#2563eb"/>
+  <text x="1440" y="183" class="t">Storage</text>
+  <text x="1440" y="202" class="s">fotos privadas, até 5 MB</text>
+  <rect x="1120" y="230" width="420" height="55" rx="9" fill="#ffffff" stroke="#2563eb"/>
+  <text x="1330" y="253" class="t">Tabelas da aplicação</text>
+  <text x="1330" y="272" class="s">chamados · alertas · perfis · bairros · sensores</text>
+  <rect x="1120" y="315" width="420" height="55" rx="9" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="1330" y="338" class="t">bronze.leituras_brutas</text>
+  <text x="1330" y="357" class="s">JSON exatamente como chegou (inclui rejeitadas)</text>
+  <path class="seta" d="M1180,370 V411"/>
+  <text x="1192" y="396" class="l">ingerir_leitura(): valida, tipa e classifica</text>
+  <rect x="1120" y="415" width="420" height="55" rx="9" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="1330" y="438" class="t">silver.leituras</text>
+  <text x="1330" y="457" class="s">leitura válida: normal · atenção · crítico</text>
+  <path class="seta" d="M1180,470 V511"/>
+  <text x="1192" y="496" class="l">janelas (média móvel, LAG) · FILTER · índice composto</text>
+  <rect x="1120" y="515" width="420" height="105" rx="9" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="1330" y="540" class="t">gold (visões para consumo)</text>
+  <text x="1330" y="562" class="s">situacao_bairros → índice de risco 0–100 e ranking</text>
+  <text x="1330" y="581" class="s">leituras_por_hora · chamados_diario</text>
+  <text x="1330" y="600" class="s">indicadores_gerais · qualidade_ingestao</text>
+
+  <!-- ===== saídas ===== -->
+  <rect x="360" y="680" width="280" height="70" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="500" y="709" class="t">Fila priorizada do gestor</text>
+  <text x="500" y="728" class="s">chamados ordenados pelo score</text>
+  <rect x="740" y="680" width="290" height="70" rx="9" fill="#f3e8ff" stroke="#7c3aed"/>
+  <text x="885" y="709" class="t">Alertas à população</text>
+  <text x="885" y="728" class="s">no app, por bairro</text>
+  <rect x="1120" y="680" width="420" height="70" rx="9" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="1330" y="709" class="t">Dashboard</text>
+  <text x="1330" y="728" class="s">indicadores com filtros · onde agir primeiro</text>
+
+  <!-- ===== fluxos ===== -->
+  <path class="seta" d="M280,190 H356"/>
+  <path class="seta" d="M280,290 H356"/>
+  <path class="seta" d="M265,455 H356"/>
+  <path class="seta" d="M265,530 H300 V485 H356"/>
+
+  <path class="seta" d="M640,290 H690 V200 H736"/>
+  <path class="seta" d="M850,240 V261"/>
+  <path class="seta" d="M850,345 V396"/>
+  <text x="858" y="376" class="l">alagamento crítico</text>
+  <path class="seta" d="M640,455 H736"/>
+  <text x="667" y="436" class="l">leitura</text><text x="667" y="449" class="l">crítica</text>
+
+  <path class="seta" d="M960,300 H1070 V257 H1116"/>
+  <text x="968" y="293" class="l">prioridade</text>
+  <path class="seta" d="M1120,570 H1085 V325 H964"/>
+  <text x="968" y="341" class="l">risco do bairro</text>
+  <path class="seta" d="M640,485 H700 V515 H1106 V342 H1117"/>
+  <text x="910" y="508" class="l">leituras dos sensores</text>
+
+  <path class="seta" d="M500,640 V676"/>
+  <path class="seta" d="M900,480 V676"/>
+  <path class="seta" d="M1330,620 V676"/>
+  <path class="seta" d="M885,750 V785 H20 V180 H36"/>
+  <text x="300" y="779" class="l">o morador do bairro é avisado</text>
+
+  <!-- ===== área 4 ===== -->
+  <rect x="40" y="810" width="1520" height="160" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="60" y="837" font-size="14" font-weight="700" fill="#c2410c">Área 4 · DevOps, segurança e qualidade</text>
+  <rect x="60" y="852" width="330" height="95" rx="9" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="225" y="885" class="t">GitHub</text>
+  <text x="225" y="905" class="s">commits por funcionalidade</text>
+  <text x="225" y="922" class="s">branch → pull request → main</text>
+  <rect x="440" y="852" width="420" height="95" rx="9" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="650" y="885" class="t">GitHub Actions (CI a cada push)</text>
+  <text x="650" y="905" class="s">lint · 15 testes · avaliação da IA</text>
+  <text x="650" y="922" class="s">build do Next · imagem Docker</text>
+  <rect x="910" y="852" width="290" height="95" rx="9" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="1055" y="885" class="t">Docker</text>
+  <text x="1055" y="905" class="s">multi-stage, usuário sem privilégio</text>
+  <text x="1055" y="922" class="s">HEALTHCHECK em /api/saude</text>
+  <rect x="1250" y="852" width="290" height="95" rx="9" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="1395" y="885" class="t">Segurança</text>
+  <text x="1395" y="905" class="s">Auth + RLS · validação de entrada</text>
+  <text x="1395" y="922" class="s">chave do dispositivo · segredos em runtime</text>
+  <path class="seta" d="M390,900 H436"/>
+  <path class="seta" d="M860,900 H906"/>
+</svg>
